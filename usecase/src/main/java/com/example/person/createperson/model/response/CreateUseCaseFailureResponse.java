@@ -13,13 +13,13 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@SuperBuilder
-public class CreatePersonUseCaseFailureResponse extends CreatePersonUseCaseResponse {
+@Builder
+public class CreateUseCaseFailureResponse extends CreateUseCaseResponse {
     private List<String> existingUserIds;
 
-    @Builder(builderMethodName = "CreatePersonUseCaseFailureResponse")
-    public CreatePersonUseCaseFailureResponse(boolean success, List<String> existingUserIds) {
-        super(success);
+    @Builder(builderMethodName = "CreatePersonUseCaseFailureResponseBuilder")
+    public CreateUseCaseFailureResponse(List<String> existingUserIds) {
+        super(false);
         this.existingUserIds = existingUserIds;
     }
 }

@@ -1,11 +1,14 @@
 package com.example.rest.person;
 
 import com.example.model.Person;
+import com.example.person.createperson.CreatePersonUseCase;
 import com.example.rest.person.dto.request.ReplacePersonRequest;
 import com.example.rest.person.dto.response.ReplacePersonResponse;
 import com.example.rest.person.dto.request.CreatePersonRequest;
 import com.example.rest.person.dto.response.ListPersonsResponse;
 import jakarta.websocket.server.PathParam;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +17,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/rest/v1/persons")
+@RequiredArgsConstructor
 public class PersonRestController {
+
+    @NonNull
+    private final CreatePersonUseCase createPersonUseCase;
 
     @GetMapping
     public ResponseEntity<ListPersonsResponse> listPersons() {

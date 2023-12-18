@@ -1,12 +1,16 @@
 package com.example.person.createperson;
 
+import com.example.person.model.DateOfBirth;
+import com.example.person.model.FullName;
 import com.example.person.createperson.model.ExistingPersonsModel;
 import com.example.person.createperson.model.NewPersonModel;
 import com.example.person.createperson.model.request.CreateUseCaseRequest;
+import com.example.person.repository.PersonRepository;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -16,12 +20,16 @@ import java.util.List;
  * is exposed to the implementation details.
  */
 @Component
+@RequiredArgsConstructor
 public class CreatePersonUseCaseAdapter {
 
-    public List<ExistingPersonsModel> getExistingPersons(final String fullName, final LocalDate dateOfBirth) {
-        ExistingPersonsModel existingPerson1 = ExistingPersonsModel.builder().id("1").build();
-        ExistingPersonsModel existingPerson2 = ExistingPersonsModel.builder().id("2").build();
-        return List.of(existingPerson1, existingPerson2);
+    @NonNull
+    private final PersonRepository repository;
+
+    public List<ExistingPersonsModel> getExistingPersons(final FullName fullName, final DateOfBirth dateOfBirth) {
+        repository.getByFullNameAndDateOfBirth(fullName, dateOfBirth);
+        List<String> persons = List.of("");
+        return persons.stream().map(ExistingPersonsModel::new).toList();
     }
 
     public NewPersonModel createNewPerson(CreateUseCaseRequest request) {

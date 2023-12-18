@@ -1,8 +1,8 @@
 package com.example.person.createperson.model.response.factory;
 
 import com.example.person.createperson.model.NewPersonModel;
-import com.example.person.createperson.model.response.CreatePersonUseCaseFailureResponse;
-import com.example.person.createperson.model.response.CreatePersonUseCaseSuccessfulResponse;
+import com.example.person.createperson.model.response.CreateUseCaseFailureResponse;
+import com.example.person.createperson.model.response.CreateUseCaseSuccessfulResponse;
 import lombok.experimental.UtilityClass;
 
 import java.util.List;
@@ -10,16 +10,14 @@ import java.util.List;
 @UtilityClass
 public class CreatePersonUseCaseResponseFactory {
 
-    public static CreatePersonUseCaseFailureResponse createForExistingPerson(final List<String> existingUsersIds) {
-        return CreatePersonUseCaseFailureResponse.builder()
-                .success(false)
+    public static CreateUseCaseFailureResponse createForExistingPerson(final List<String> existingUsersIds) {
+        return CreateUseCaseFailureResponse.builder()
                 .existingUserIds(existingUsersIds)
                 .build();
     }
 
-    public static CreatePersonUseCaseSuccessfulResponse createForNewPerson(final NewPersonModel newPersonModel) {
-        return CreatePersonUseCaseSuccessfulResponse.builder()
-                .success(true)
+    public static CreateUseCaseSuccessfulResponse createForNewPerson(final NewPersonModel newPersonModel) {
+        return CreateUseCaseSuccessfulResponse.builder()
                 .newPersonModel(newPersonModel)
                 .build();
     }

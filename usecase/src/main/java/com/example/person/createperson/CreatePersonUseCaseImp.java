@@ -2,7 +2,7 @@ package com.example.person.createperson;
 
 import com.example.person.createperson.model.ExistingPersonsModel;
 import com.example.person.createperson.model.request.CreateUseCaseRequest;
-import com.example.person.createperson.model.response.CreatePersonUseCaseResponse;
+import com.example.person.createperson.model.response.CreateUseCaseResponse;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ class CreatePersonUseCaseImp implements CreatePersonUseCase {
     private final CreatePersonUseCaseAdapter adapter;
 
     @Override
-    public CreatePersonUseCaseResponse create(CreateUseCaseRequest request) {
+    public CreateUseCaseResponse create(CreateUseCaseRequest request) {
         List<ExistingPersonsModel> personsWithSameFullNameAndDateOfBirth = adapter
                 .getExistingPersons(request.fullName(), request.dateOfBirth());
 

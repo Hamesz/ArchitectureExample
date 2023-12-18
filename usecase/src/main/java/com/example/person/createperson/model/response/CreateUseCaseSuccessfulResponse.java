@@ -8,14 +8,13 @@ import lombok.experimental.SuperBuilder;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@SuperBuilder
-public class CreatePersonUseCaseSuccessfulResponse extends CreatePersonUseCaseResponse {
-
+@Builder
+public class CreateUseCaseSuccessfulResponse extends CreateUseCaseResponse {
     private NewPersonModel newPersonModel;
 
-    @Builder(builderMethodName = "CreatePersonUseCaseSuccessfulResponse")
-    public CreatePersonUseCaseSuccessfulResponse(boolean success, NewPersonModel newPersonModel) {
-        super(success);
+    @Builder(builderClassName = "CreateUseCaseSuccessfulResponseBuilder")
+    public CreateUseCaseSuccessfulResponse(NewPersonModel newPersonModel) {
+        super(true);
         this.newPersonModel = newPersonModel;
     }
 }
