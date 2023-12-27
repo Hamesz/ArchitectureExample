@@ -12,7 +12,6 @@ import java.time.Instant;
 public record NewPersonModel(
         @NonNull Id id,
         @NonNull FullName fullName,
-        @NonNull DateOfBirth dateOfBirth,
-        @NonNull Instant createdAt
+        @NonNull DateOfBirth dateOfBirth
 ) {
 }

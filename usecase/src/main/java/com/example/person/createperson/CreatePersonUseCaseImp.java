@@ -1,5 +1,6 @@
 package com.example.person.createperson;
 
+import com.example.person.createperson.adapter.CreatePersonUseCaseAdapter;
 import com.example.person.createperson.model.ExistingPersonsModel;
 import com.example.person.createperson.model.request.CreateUseCaseRequest;
 import com.example.person.createperson.model.response.CreateUseCaseResponse;

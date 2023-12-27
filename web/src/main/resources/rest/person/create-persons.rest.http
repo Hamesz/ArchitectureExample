@@ -1,0 +1,8 @@
+POST {{host}}/api/rest/v1/persons
+Content-Type: application/json
+
+{
+  "firstName": "James",
+  "lastName": "Hanratty",
+  "dateOfBirth": "01/01/2000"
+}

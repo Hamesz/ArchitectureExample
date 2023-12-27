@@ -4,17 +4,22 @@ import com.example.person.createperson.model.NewPersonModel;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Value;
 import lombok.experimental.SuperBuilder;
 
 @EqualsAndHashCode(callSuper = true)
-@Data
+@Value
 @Builder
 public class CreateUseCaseSuccessfulResponse extends CreateUseCaseResponse {
-    private NewPersonModel newPersonModel;
+    NewPersonModel newPersonModel;
 
     @Builder(builderClassName = "CreateUseCaseSuccessfulResponseBuilder")
     public CreateUseCaseSuccessfulResponse(NewPersonModel newPersonModel) {
-        super(true);
         this.newPersonModel = newPersonModel;
+    }
+
+    @Override
+    public boolean isSuccess() {
+        return true;
     }
 }

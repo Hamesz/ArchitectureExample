@@ -1,8 +1,10 @@
 package com.example.person.createperson.model.response;
 
+import com.example.person.model.Id;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Value;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
@@ -12,14 +14,19 @@ import java.util.List;
  * and date of birth.
  */
 @EqualsAndHashCode(callSuper = true)
-@Data
+@Value
 @Builder
 public class CreateUseCaseFailureResponse extends CreateUseCaseResponse {
-    private List<String> existingUserIds;
+    List<Id> existingUserIds;
 
     @Builder(builderMethodName = "CreatePersonUseCaseFailureResponseBuilder")
-    public CreateUseCaseFailureResponse(List<String> existingUserIds) {
-        super(false);
+    public CreateUseCaseFailureResponse(List<Id> existingUserIds) {
         this.existingUserIds = existingUserIds;
+    }
+
+
+    @Override
+    public boolean isSuccess() {
+        return false;
     }
 }

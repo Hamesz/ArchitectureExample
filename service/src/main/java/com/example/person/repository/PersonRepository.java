@@ -9,6 +9,8 @@ import com.example.person.model.response.CreateResponse;
 
 import java.nio.DoubleBuffer;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * Shared business data logic
@@ -18,7 +20,7 @@ public interface PersonRepository {
 
     boolean deleteById(String id);
 
-    Person getById(String id);
+    Optional<Person> getById(String id);
 
-    Person getByFullNameAndDateOfBirth(FullName fullName, DateOfBirth dateOfBirth);
+    List<Person> getByFullNameAndDateOfBirth(FullName fullName, DateOfBirth dateOfBirth);
 }
